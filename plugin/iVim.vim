@@ -24,7 +24,7 @@ let g:iVim_cursortype_visual = 0	" Default: Block
 
 " Primary functions
 
-command -bar iVimSetBgImg call g:iVim#image#setBgImg(%)
+command -bar IVimSetBgImg call g:iVim#image#setBgImg(%)
 
 "command -bar iVimEnableAll call g:iVim#image#setBgImg()
 "command -bar iVimDisableAll call g:iVim#all#disable()
