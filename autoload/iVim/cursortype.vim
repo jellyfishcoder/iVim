@@ -18,7 +18,7 @@
 " Outputs:
 " 	None
 function! g:iVim#cursortype#set (state)
-	let l:tmpCmd = 'echo -e "\033]1337;CursorShape=' state '\a"'
+	let l:tmpCmd = join(['echo -e "\033]1337;CursorShape=', state, '\a"'], '')
 	call system(l:tmpCmd)
 endfunction
 
