@@ -1,0 +1,1 @@
+iVim is a plugin for vim that adds support for many cool iTerm2 features, such as images, background images, and more. By default, if you open an image file, the background of the current iTerm2 tab will be set to the image opened in vim, then set back when Vim exits.
