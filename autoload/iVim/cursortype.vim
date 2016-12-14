@@ -19,7 +19,7 @@
 " 	None
 function! g:iVim#cursortype#set (state)
 	let l:tmpCmd = 'echo -e "\033]1337;CursorShape=' state '\a"'
-	call system('echo -e "\033]1337;CursorShape='shellescape(state)'\a"')
+	call system(l:tmpCmd)
 endfunction
 
 " Usage:
