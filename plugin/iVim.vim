@@ -45,7 +45,7 @@ command -bar IVimSetBgImg call g:iVim#image#setBgImg(%)
 "command -bar iVimCursortypeToggle call g:iVim#cursortype#toggle()
 
 " Autocommands
-if g:iVim_tabcolour_enabled #== 1
+if g:iVim_tabcolour_enabled == 1
 	augroup tabcolours
 		autocmd!
 		autocmd InsertEnter *	call g:iVim#tabcolour#insert()
@@ -53,7 +53,7 @@ if g:iVim_tabcolour_enabled #== 1
 	augroup END
 endif
 
-if g:iVim_cursortype_enabled #== 1
+if g:iVim_cursortype_enabled == 1
 	augroup cursortypes
 		autocmd!
 		autocmd InsertEnter *	call g:iVim#cursortype#insert()
