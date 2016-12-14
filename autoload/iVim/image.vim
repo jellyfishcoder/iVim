@@ -58,6 +58,8 @@ function! g:iVim#image#dispInlineImg(imgpath)
 		let l:tmpImgCmd = join([l:tmpImgCmd, '\033\\'], '')
 	endif
 
+	" Split window
+	new
 	" Display the image inline
 	call system('echo -e', l:tmpImgCmd)
 endfunction
