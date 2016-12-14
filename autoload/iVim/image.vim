@@ -10,7 +10,7 @@
 function! g:iVim#image#setBgImg(imgpath)
 	" Local variable holding the stuffs we need
 	let l:tmpImgCmd = '\033'
-	if ($TERM ==# screen*)
+	if ($TERM ==# "screen*")
 		" Must have a double escape for tmux
 		let l:tmpImgCmd = join([l:tmpImgCmd, 'Ptmux;\033\033'], '')
 	endif
@@ -18,7 +18,7 @@ function! g:iVim#image#setBgImg(imgpath)
 	" nature and all coding style, which is very distressing)
 	let l:tmpImgCmd = join([l:tmpImgCmd, ']1337;SetBackgroundImageFile=', system(join(['echo', a:imgpath, '|', 'base64'], ' ')), '\a'], '')
 	" Add escape sequence tail
-	if ($TERM ==# screen*)
+	if ($TERM ==# "screen*")
 		" Must have double escape for tmux
 		let l:tmpImgCmd = join([l:tmpImgCmd, '\033\\'], '')
 	endif
@@ -39,7 +39,7 @@ function! g:iVim#image#dispInlineImg(imgpath)
 	" single quotes, double quotes will escape)
 	let l:tmpImgCmd = '\033'
 	" Check if we are inside a tmux or screen session
-	if ($TERM ==# screen*)
+	if ($TERM ==# "screen*")
 		" Must have a double escape for tmux
 		let l:tmpImgCmd = join([l:tmpImgCmd, 'Ptmux;\033\033'], '')
 	endif
@@ -53,7 +53,7 @@ function! g:iVim#image#dispInlineImg(imgpath)
 	let l:tmpImgCmd = join([l:tmpImgCmd, ':', system('base64 <', a:imgpath), ';'], '')
 	" Add escape sequence tail
 	let l:tmpImgCmd = join([l:tmpImgCmd, '\a'], '')
-	if ($TERM ==# screen*)
+	if ($TERM ==# "screen*")
 		" Must have double escape for tmux
 		let l:tmpImgCmd = join([l:tmpImgCmd, '\033\\'], '')
 	endif
