@@ -16,7 +16,7 @@ function! g:iVim#image#setBgImg(imgpath)
 	"endif
 	" Add more to the weird string (and the line is an abomination of
 	" nature and all coding style, which is very distressing)
-	let l:tmpImgCmd = join([l:tmpImgCmd, ']1337;SetBackgroundImageFile=', system('cat ' a:imgpath ' | base64'), '\a'], '')
+	let l:tmpImgCmd = join([l:tmpImgCmd, ']1337;SetBackgroundImageFile=', system(join(['cat', a:imgpath, '| base64'], ' ')), '\a'], '')
 	" Add escape sequence tail
 	"if ($TERM ==# "screen*")
 	"	" Must have double escape for tmux
