@@ -10,18 +10,18 @@
 function! g:iVim#image#setBgImg(imgpath)
 	" Local variable holding the stuffs we need
 	let l:tmpImgCmd = '\033'
-	if ($TERM ==# "screen*")
-		" Must have a double escape for tmux
-		let l:tmpImgCmd = join([l:tmpImgCmd, 'Ptmux;\033\033'], '')
-	endif
+	"if ($TERM ==# "screen*")
+	"	" Must have a double escape for tmux
+	"	let l:tmpImgCmd = join([l:tmpImgCmd, 'Ptmux;\033\033'], '')
+	"endif
 	" Add more to the weird string (and the line is an abomination of
 	" nature and all coding style, which is very distressing)
-	let l:tmpImgCmd = join([l:tmpImgCmd, ']1337;SetBackgroundImageFile=', system(join(['echo', a:imgpath, '|', 'base64'], ' ')), '\a'], '')
+	let l:tmpImgCmd = join([l:tmpImgCmd, ']1337;SetBackgroundImageFile=', system('cat ' a:imgpath ' | base64'), '\a'], '')
 	" Add escape sequence tail
-	if ($TERM ==# "screen*")
-		" Must have double escape for tmux
-		let l:tmpImgCmd = join([l:tmpImgCmd, '\033\\'], '')
-	endif
+	"if ($TERM ==# "screen*")
+	"	" Must have double escape for tmux
+	"	let l:tmpImgCmd = join([l:tmpImgCmd, '\033\\'], '')
+	"endif
 
 	" And... after that horrid mess, set the background image
 	call system('echo -e', l:tmpImgCmd)
